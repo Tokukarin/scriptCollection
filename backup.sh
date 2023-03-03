@@ -15,3 +15,5 @@ proxmox-backup-client backup root.pxar:/ etc.pxar:/etc
 # Set empty variables for security
 export PBS_PASSWORD=
 export PBS_REPOSITORY=
+
+exit 0
