@@ -12,7 +12,13 @@ filePath="/app/schema/definitions.json"
 # Get container ID
 dockerId=$(docker container ls --all --quiet --filter "name=npm")
 
+echo "Setting max from 15 to 50"
 # Replace 15 to 50
 docker exec $dockerId sed -i "s/\"maxItems\"\:\ 15/\"maxItems\"\:\ 50/g" $filePath
 
+echo "Restarting container"
+# Container needs to be restarted to take effect
+docker restart $dockerId
+
+# End
 exit 0
