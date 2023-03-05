@@ -1,5 +1,8 @@
 ## Collection of scripts that I use to make my sysadmin life easier
 
+Unlock Nginx Proxy Manager limitation for certificates:
+[unlockMaxDomainnames.sh](https://github.com/Tokukarin/scriptCollection/blob/master/unlockMaxDomainnames.sh)
+
 Set strong permissions in the Nextcloud folders:  
 [setStrongPermissionsNextcloud.sh](https://github.com/Tokukarin/scriptCollection/blob/master/setStrongPermissionsNextcloud.sh)
 
