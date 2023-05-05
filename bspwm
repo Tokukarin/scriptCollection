@@ -1,0 +1,39 @@
+#! /bin/sh
+
+# Second Monitor Setup
+external_monitor=$(xrandr --query | grep 'HDMI-1')
+if [[ $external_monitor = *connected* ]]; then
+    xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 165 --rotate normal --output eDP-1 --mode 1920x1080 --rate 144 --rotate normal --left-of HDMI-1
+fi
+
+# Rules
+bspc rule -a 'Steam' focus=off
+bspc rule -a 'Friends List' state=floating focus=off
+bspc ruke -a 'Steam - News' state=floating focus=off
+bspc rule -a 'kcalc' state=floating focus=on
+bspc rule -a 'mplayer2' state=floating
+bspc rule -a 'rdesktop' state=fullscreen desktop=^6
+
+# Basic    
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# ! Plasma Panel mix !
+bspc config bottom_padding 44
+
+# Monitor Setup
+bspc monitor HDMI-1 -d I II III
+bspc monitor eDP-1 -d IV V VI
+
+# Other Stuff
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# Testing
+# Super Hotkey for Application Launcher
+#ksuperkey &
+# Security checker
+#arch-audit-gtk &
